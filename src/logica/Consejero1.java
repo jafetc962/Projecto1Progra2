@@ -1,30 +1,26 @@
 package logica;
 
-public class Consejero1 extends Pieza {
+public class Consejero1 extends Fichas {
 
-    private Tablero2 tablero;
-    public Consejero1(Bando bando, Tablero2 tablero) {
+    private Xiangqui tablero;
+    public Consejero1(Equipo bando, Xiangqui tablero) {
         super(bando);
         this.tablero = tablero;
     }
     @Override
-    public boolean MovimientoPiezas(int filaOrigen, int columOrigen, int filaDestino, int columDestino) {
-        //aqui se verifica si el movimiento es diagonal 1 casilla en cada direccion
+    public boolean fichasMovements(int filaOrigen, int columOrigen, int filaDestino, int columDestino) {
         if (Math.abs(filaDestino - filaOrigen) == 1 && Math.abs(columDestino - columOrigen) == 1) {
-            // Verificar si se mantiene dentro del palacio
-            if (bando == Bando.ROJO) {
-                // El oficial rojo debe permanecer entre las filas 7 y 9, y columnas 3 y 5
+            if (bando == Equipo.ROJO) {
                 if (filaDestino >= 7 && filaDestino <= 9 && columDestino >= 3 && columDestino <= 5) {
-                    return true; //aqui movimiento valido
+                    return true; 
                 }
-            } else if (bando == Bando.NEGRO) {
-                // El oficial negro debe permanecer entre las filas 0 y 2, y columnas 3 y 5
+            } else if (bando == Equipo.NEGRO) {
                 if (filaDestino >= 0 && filaDestino <= 2 && columDestino >= 3 && columDestino <= 5) {
-                    return true; //aqui Movimiento valido
+                    return true; 
                 }
             }
         }
-        return false; //aqui Movimiento invalido
+        return false; 
     }
     
     

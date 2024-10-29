@@ -4,7 +4,7 @@
  */
 package igu;
 
-import logica.Tablero2;
+import logica.Xiangqui;
 import javax.swing.JOptionPane;
 import logica.Usuarios;
 
@@ -225,7 +225,7 @@ public class MenuPrincipal extends javax.swing.JFrame {
 // Verificar si se seleccionó un usuario
         if (seleccion != null) {
             
-            new Tablero2(mi.lg,mi.lg,mi).setVisible(true); 
+            new Xiangqui(mi.lg,mi.lg,mi).setVisible(true); 
             this.dispose();
            
         } else {

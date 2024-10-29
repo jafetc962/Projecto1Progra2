@@ -8,6 +8,6 @@ package logica;
  *
  * @author HP
  */
-public enum Bando {
+public enum Equipo {
     ROJO,NEGRO
 }

@@ -1,16 +1,16 @@
 package logica;
 
-public class Torre1 extends Pieza {
+public class Torre1 extends Fichas {
 
-    private Tablero2 tablero;
-    public Torre1(Bando bando, Tablero2 tablero) {
+    private Xiangqui tablero;
+    public Torre1(Equipo bando, Xiangqui tablero) {
         super(bando);
         this.tablero = tablero;
     }
     @Override
-    public boolean MovimientoPiezas(int filaOrigen, int columOrigen, int filaDestino, int columDestino) {
+    public boolean fichasMovements(int filaOrigen, int columOrigen, int filaDestino, int columDestino) {
         //aqui se verifica si hay una pieza del mismo bando en el destino del elefante
-        Pieza piezaDestino = tablero.obtenerPieza(filaDestino, columDestino);
+        Fichas piezaDestino = tablero.buscarF(filaDestino, columDestino);
         if (piezaDestino != null) {
             //aqui se verifica que no sea del mismo bando
             if (piezaDestino.getBando() == this.getBando()) {
