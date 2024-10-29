@@ -133,7 +133,7 @@ public final class Tablero2 extends JFrame {
     
     
     //aqui funcion para manejar el clic en un boton del tablero
-    private void manejarClick(int fila, int columna) {
+    private final void manejarClick(int fila, int columna) {
         // Si no hay una pieza seleccionada, seleccionar la pieza
         if (filaSeleccionada == -1 && columnaSeleccionada == -1) {
             if (piezasTablero[fila][columna] != null && piezasTablero[fila][columna].getBando() == turnoActual) {
@@ -153,7 +153,7 @@ public final class Tablero2 extends JFrame {
         }
     }
     //aqui una funcio para resaltar los movimientos validos de la pieza seleccionada
-    private void resaltarMovimientos(int filaOrigen, int columOrigen) {
+    private final void resaltarMovimientos(int filaOrigen, int columOrigen) {
         Pieza pieza = piezasTablero[filaOrigen][columOrigen];
         // Solo resaltar movimientos si la pieza no es nula
         if (pieza != null) {
@@ -169,7 +169,7 @@ public final class Tablero2 extends JFrame {
         }
     }
     //aqui funcion para restaurar los colores originales del tablero
-    private void restaurarColoresTablero() {
+    private final void restaurarColoresTablero() {
         for (int fila = 0; fila < 10; fila++) {
             for (int columna = 0; columna < 9; columna++) {
                 if (fila < 5) {
@@ -185,7 +185,7 @@ public final class Tablero2 extends JFrame {
         }
     }
     //aqui funcion para asignar las piezas en sus posiciones iniciales
-    private void asignarPiezas(int fila, int columna) {
+    private final void asignarPiezas(int fila, int columna) {
         if (fila == 0 || fila == 9) {
             // Asignar las piezas principales
             if (columna == 0 || columna == 8) {
@@ -216,7 +216,7 @@ public final class Tablero2 extends JFrame {
         }
     }
     //aqui funcion para obtener la imagen correspondiente a una pieza
-    private String obtenerImagenPieza(Pieza pieza) {
+    private final String obtenerImagenPieza(Pieza pieza) {
         if (pieza instanceof Torre1) {
             return pieza.getBando() == Bando.ROJO ? "CarroRojo.png" : "CarroNegro.png";
         }
@@ -241,7 +241,7 @@ public final class Tablero2 extends JFrame {
         return "";
     }
     //aqui funcio para verificar si hay una pieza en una posición específica
-    public boolean hayPieza(int fila, int columna) {
+    public final boolean hayPieza(int fila, int columna) {
         return piezasTablero[fila][columna] != null;
     }
     
@@ -252,7 +252,7 @@ public final class Tablero2 extends JFrame {
         return null; // No hay pieza en esa posición
     }
     //aqui funcion para mover una pieza
-   public void moverPieza(int filaOrigen, int columOrigen, int filaDestino, int columDestino) {
+   public final void moverPieza(int filaOrigen, int columOrigen, int filaDestino, int columDestino) {
         
 
         Pieza pieza = piezasTablero[filaOrigen][columOrigen];
@@ -307,7 +307,7 @@ public final class Tablero2 extends JFrame {
         }
     }
     //aqui funcion para obtener la fila donde esta el general de un bando
-    public int obtenerFilaGeneral(Bando bando) {
+    public final int obtenerFilaGeneral(Bando bando) {
         for (int fila = 0; fila < 10; fila++) {
             for (int col = 0; col < 9; col++) {
                 Pieza pieza = piezasTablero[fila][col];
@@ -319,7 +319,7 @@ public final class Tablero2 extends JFrame {
         return -1; // No se encontro el general
     }
     
-    private void AbandonarPartida(){
+    private final void AbandonarPartida(){
         
         
                 String ganador = turnoActual == Bando.ROJO ? oponente.sendPlayer("negro") : jugadorLogueado.sendLogged();
@@ -336,7 +336,7 @@ public final class Tablero2 extends JFrame {
         
     }
     
-    public boolean reyesNoPuedenVerse() {
+    public final boolean reyesNoPuedenVerse() {
         int filaReyRojo = -1;
         int columnaReyRojo = -1;
         int filaReyNegro = -1;
@@ -374,7 +374,7 @@ public final class Tablero2 extends JFrame {
         return true; // No están en la misma columna, posición válida
     }
 
-    private void anunciarVictoria() {
+    private final void anunciarVictoria() {
         String ganador = (turnoActual == Bando.NEGRO) ? oponente.sendPlayer("negro") : jugadorLogueado.sendLogged();
         mi.lg.GuardarPartida(jugadorLogueado.sendLogged(), mi.lg.sendPlayer("negro"), ganador);
         JOptionPane.showMessageDialog(this, "¡ " + ganador + " HA GANADO LA PARTIDA +3 PUNTOS!", "JAQUE MATE", JOptionPane.INFORMATION_MESSAGE);
